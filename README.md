@@ -157,12 +157,18 @@ To translate continuous experimental drug sensitivity values (**ln(IC₅₀)**) 
 
 ```dax
 Clinical_Tier = 
-SWITCH(
-    TRUE(),
-    ISBLANK('oncology_dw fact_drug_sensitivity'[ln_ic50]), "Unknown",
-    'oncology_dw fact_drug_sensitivity'[ln_ic50] < 0.5, "Responder (High Potency)",
-    'oncology_dw fact_drug_sensitivity'[ln_ic50] > 3.5, "Non-Responder (Resistant)",
-    "Intermediate Sensitivity"
+IF(
+    ISBLANK('oncology_dw fact_drug_sensitivity'[ln_ic50]), 
+    "Unknown", 
+    IF(
+        'oncology_dw fact_drug_sensitivity'[ln_ic50] < 0.5, 
+        "Responder (High Potency)", 
+        IF(
+            'oncology_dw fact_drug_sensitivity'[ln_ic50] > 3.5, 
+            "Non-Responder (Resistant)", 
+            "Intermediate Sensitivity"
+        )
+    )
 )
 ```
 
