@@ -9,11 +9,11 @@ from sqlalchemy import create_engine
 import os
 
 # ⚙️ PostgreSQL Connection Configuration
-DB_USER = "postgres"
-DB_PASS = "admin123"  # Update if your password is different
-DB_HOST = "127.0.0.1"
-DB_PORT = "5432"
-DB_NAME = "postgres"
+DB_USER = ""
+DB_PASS = ""  
+DB_HOST = ""
+DB_PORT = ""
+DB_NAME = ""
 
 DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
