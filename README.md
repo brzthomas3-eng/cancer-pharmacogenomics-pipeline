@@ -27,16 +27,6 @@ cancer-pharmacogenomics-pipeline/
 └── run_pipeline.bat          # Master automation orchestrator script
 
 
-## ### 1. Executive Overview Dashboard (Power BI - Page 1)
-![Executive Overview](Page%201%20executive_overview.png.png)
 
-### 2. Cohort Progression Matrix (Power BI - Page 2)
-![Cohort Progression Matrix](Page%202%20cohort_progression_matrix.png.png)
-
-### 3. Differential Drug Sensitivity (Volcano Plot)
-![Volcano Plot](dashboard/plots/volcano_plot.png)
-
-### 4. Pathway Sensitivity Distribution (Violin Plot)
-![Violin Plot](dashboard/plots/pathway_violin_plot.png)
 
 
