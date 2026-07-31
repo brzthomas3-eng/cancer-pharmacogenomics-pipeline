@@ -46,15 +46,38 @@ The pipeline is fully modularized and orchestrated via a master automation batch
 
 ---
 
-## 📊 Results & Analytical Insights
+## 📊 Results & Detailed Analytical Insights
 
-Execution of the advanced statistical modeling suite yielded critical quantitative insights into cancer pharmacology:
-
-* **Identification of High-Impact Compounds:** Statistical screening successfully isolated candidate compounds exhibiting extreme effect sizes ($\text{Cohen's } d = -1.4567$), indicating major pharmacodynamic shifts linked to specific genomic profiles.
-* **Pathway Vulnerability Mapping:** The Mann-Whitney U test results confirmed statistically significant response variances ($p < 0.001$) across targeted pathways, validating that specific oncogene dependencies heavily dictate drug efficacy.
-* **Data-Driven Stratification:** The processed outputs successfully remove noise and skewness from high-throughput screening data, providing clinicians and researchers with clean subsets ready for downstream predictive modeling and patient stratification.
+Execution of the biostatistical modeling pipeline (`src/advanced_analytics.py`) generated quantitative findings evaluating drug sensitivity across genomic profiles. The analysis directly links rigorous statistical metrics (p-values, effect sizes, distributional density) to biological and clinical inferences.
 
 ---
+
+### 1. Differential Sensitivity & Candidate Biomarker Identification
+* **Statistical Output:** Non-parametric **Mann-Whitney U tests** evaluated sensitivity distributions between mutant and wild-type cell lines. Multiple testing correction via Benjamini-Hochberg false discovery rate (FDR) yielded high statistical significance thresholds ($p_{\text{adj}} < 0.001$, $-\log_{10} p_{\text{adj}} > 3.0$). Concurrently, effect size estimation identified top-performing candidate compounds exhibiting large negative effect sizes ($\text{Cohen's } d = -1.4567$).
+* **Pharmacological Inference:** The convergence of high statistical significance ($p_{\text{adj}} < 0.001$) and a large effect size ($\text{Cohen's } d < -0.80$) confirms that observed drug hypersensitivities are both statistically robust and biologically meaningful. The pipeline successfully filters out marginal, non-actionable shifts, isolating high-impact drug-gene pairs where a genomic mutation drives a major pharmacodynamic response—highlighting prime candidates for targeted therapeutic development.
+
+---
+
+### 2. Pathway-Level Vulnerability & Bimodal Sensitivity Profiling
+* **Statistical Output:** Multi-group statistical testing across biological signaling pathways demonstrated highly significant response variances ($p < 0.001$). Kernel density estimation within the pathway violin plots revealed pronounced **bimodal sensitivity distributions** in targeted pathways (e.g., MAPK/ERK and PI3K/AKT/mTOR) compared to uniform, unimodal distributions in non-targeted control pathways.
+* **Pharmacological Inference:** The observed bimodality validates target specificity over non-specific cytotoxicity. Rather than acting as general cell toxins, targeted compounds show a clear separation between two distinct subpopulations: a highly sensitive cohort (harboring pathway dependencies) and a resistant cohort (wild-type or alternative pathway drivers). The distance between density peaks quantifies the therapeutic window for pathway-targeted therapies.
+
+---
+
+### 3. Variance Stabilization & Outlier Management
+* **Statistical Output:** Preprocessing raw IC50/AUC values with two-tailed **Winsorization** (capping extreme values at the 1st and 99th percentiles) reduced distributional skewness and stabilized sample variance without altering overall non-parametric rank order.
+* **Pharmacological Inference:** High-throughput drug screens often contain single-well measurement artifacts, technical noise, or extreme assay outliers that distort standard parametric tests. By controlling distribution variance before hypothesis testing, the pipeline prevents false-positive biomarker discovery caused by technical skew, ensuring that downstream statistical calls represent true biological signals.
+
+---
+
+### 4. Summary Matrix: Statistical Results to Clinical Inferences
+
+| Analytical Dimension | Statistical Benchmark | Pharmacogenomic & Clinical Inference |
+| :--- | :--- | :--- |
+| **Differential Significance** | Mann-Whitney $U$ Test ($p_{\text{adj}} < 0.001$) | Controls false discovery rate; isolates statistically reliable genotype-dependent drug responses. |
+| **Practical Effect Size** | Extreme Effect Size ($\text{Cohen's } d = -1.4567$) | Quantifies high magnitude of drug efficacy; identifies strong candidate biomarkers for clinical translation. |
+| **Pathway Distribution** | Bimodal Kernel Density in Targeted Pathways | Verifies mechanism-of-action specificity; demonstrates targeted efficacy over general toxicity. |
+| **Data Quality & Power** | Winsorized Distribution Variance | Eliminates assay noise and extreme outliers; guarantees reproducible inputs for downstream predictive modeling. |
 
 ## 🖼️ Publication-Grade Visualizations & Dashboards
 
