@@ -142,12 +142,11 @@ Comparative distribution analysis illustrating drug response spreads across majo
 
 ### 3. Executive Overview Dashboard (Power BI - Page 1)
 Interactive Business Intelligence interface integrating database metrics to provide real-time exploration of executive summaries and drug screening results.
-![Executive Overview](Page%201%20executive_overview.png.png)
+![Executive Overview](<dashboard/plots/Oncology Pharmacogenomics Dashboard.png>)
 
 ### 4. Cohort Progression Matrix (Power BI - Page 2)
 Dimensional drill-down matrix analyzing cell line lineages, compound annotations, and cohort progression metrics.
-![Cohort Progression Matrix](Page%202%20cohort_progression_matrix.png.png)
-
+![Cohort Progression Matrix](<dashboard/plots/Top Anti-Cancer Compound Table.png>)
 ---
 
 ## 🛠️ Project File Structure
