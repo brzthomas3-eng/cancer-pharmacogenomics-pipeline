@@ -24,9 +24,10 @@ cancer-pharmacogenomics-pipeline/
 │   ├── load_to_postgres.py   # Database loader building the Star Schema
 │   └── advanced_analytics.py # Statistical testing and plotting script
 ├── Oncology Pharmacology Dashboard.pbix  # Power BI interactive dashboard
-└── run_pipeline.bat          # Master automation orchestrator scrip
+└── run_pipeline.bat          # Master automation orchestrator script
 
-### 1. Executive Overview Dashboard (Power BI - Page 1)
+
+## ### 1. Executive Overview Dashboard (Power BI - Page 1)
 ![Executive Overview](Page%201%20executive_overview.png.png)
 
 ### 2. Cohort Progression Matrix (Power BI - Page 2)
@@ -37,3 +38,5 @@ cancer-pharmacogenomics-pipeline/
 
 ### 4. Pathway Sensitivity Distribution (Violin Plot)
 ![Violin Plot](dashboard/plots/pathway_violin_plot.png)
+
+
