@@ -180,15 +180,25 @@ IF(
 cancer-pharmacogenomics-pipeline/
 │
 ├── dashboard/
-│   └── plots/                # High-resolution saved plots (Volcano, Violin)
-├── data/
-│   ├── raw/                  # Original raw datasets (GDSC, Cell Lines, Compounds)
-│   └── processed/            # Cleaned and Winsorized CSV outputs
-├── sql/                      # DDL schema and custom analytical queries
-├── src/                      # Source code for ETL and statistical models
-│   ├── ingestion.py          # Data cleaning and preprocessing script
-│   ├── load_to_postgres.py   # Database loader building the Star Schema
-│   └── advanced_analytics.py # Statistical testing and plotting script
-├── run_pipeline.bat          # Master automation orchestrator script
-├── Page 1 executive_overview.png.png
-└── Page 2 cohort_progression_matrix.png.png
+│   └── plots/                        # Exported BI dashboards and statistical plots
+│       ├── Oncology Pharmacogenomics Dashboard.png
+│       ├── Top Anti-Cancer Compound Table.png
+│       ├── pathway_violin_plot.png
+│       └── volcano_plot.png
+│
+├── data/                             # Local storage (untracked in Git via .gitignore)
+│   ├── raw/                          # Raw GDSC dataset files
+│   └── processed/                    # Cleaned and Winsorized CSV outputs
+│
+├── sql/                              # Relational database setup
+│   └── ddl_schema.sql                # PostgreSQL Star Schema definition script
+│
+├── src/                              # Python ETL & analytical pipeline
+│   ├── advanced_analytics.py         # Advanced visualization script
+│   ├── ingestion.py                  # Data cleaning and preprocessing module
+│   ├── load_to_postgres.py           # Database loader & Star Schema population
+│   └── statistical_analysis.py       # Differential drug response modeling
+│
+├── Cancer pharmacogenomics sql.sql   # Standalone analytical & cohort CTE queries
+├── README.md                         # Project documentation
+└── run_pipeline.bat                  # Master pipeline execution batch script
