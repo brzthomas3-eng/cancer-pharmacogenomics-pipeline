@@ -28,6 +28,8 @@ CREATE TABLE IF NOT EXISTS oncology_dw.fact_drug_sensitivity (
     dataset_version VARCHAR(20) NOT NULL
 );
 
+
+
 -- Analytical Cohort Query: Drug Sensitivity Percentile Stratification
 WITH cohort_sensitivity AS (
     SELECT 
