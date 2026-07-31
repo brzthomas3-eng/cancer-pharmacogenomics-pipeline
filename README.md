@@ -149,6 +149,18 @@ Interactive Business Intelligence interface integrating database metrics to prov
 Dimensional drill-down matrix analyzing cell line lineages, compound annotations, and cohort progression metrics.
 ![Cohort Progression Matrix](<dashboard/plots/Top Anti-Cancer Compound Table.png>)
 
+### DAX Implementation
+
+```dax
+Clinical_Tier = 
+SWITCH(
+    TRUE(),
+    ISBLANK('oncology_dw fact_drug_sensitivity'[ln_ic50]), "Unknown",
+    'oncology_dw fact_drug_sensitivity'[ln_ic50] < 0.5, "Responder (High Potency)",
+    'oncology_dw fact_drug_sensitivity'[ln_ic50] > 3.5, "Non-Responder (Resistant)",
+    "Intermediate Sensitivity"
+)
+
 ---
 
 ## 🛠️ Project File Structure
